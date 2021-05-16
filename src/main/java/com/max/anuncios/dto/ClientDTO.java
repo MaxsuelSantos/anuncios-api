@@ -1,6 +1,10 @@
 package com.max.anuncios.dto;
 
+import com.max.anuncios.entities.Advertisement;
 import com.max.anuncios.entities.Client;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ClientDTO {
 
@@ -9,6 +13,8 @@ public class ClientDTO {
     private String cpf;
     private String email;
     private String phone;
+
+    private List<AdvertisementResponse> advertisementsResponse = new ArrayList<>();
 
     public ClientDTO() {
     }
@@ -27,6 +33,11 @@ public class ClientDTO {
         this.cpf = client.getCpf();
         this.email = client.getEmail();
         this.phone = client.getPhone();
+    }
+
+    public ClientDTO(Client client, List<Advertisement> advertisements) {
+        this(client);
+        advertisements.forEach(x -> this.advertisementsResponse.add(new AdvertisementResponse(x)));
     }
 
     public Long getId() {
@@ -67,5 +78,9 @@ public class ClientDTO {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public List<AdvertisementResponse> getAdvertisementsResponse() {
+        return advertisementsResponse;
     }
 }

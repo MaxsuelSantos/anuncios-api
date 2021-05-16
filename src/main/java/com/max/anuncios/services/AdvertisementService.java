@@ -1,8 +1,10 @@
 package com.max.anuncios.services;
 
 import com.max.anuncios.dto.AdvertisementDTO;
+import com.max.anuncios.dto.ClientDTO;
 import com.max.anuncios.entities.Advertisement;
 import com.max.anuncios.repositories.AdvertisementRepository;
+import com.max.anuncios.repositories.ClientRepository;
 import com.max.anuncios.util.Calc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -19,6 +21,9 @@ public class AdvertisementService {
     @Autowired
     private AdvertisementRepository advertisementRepository;
 
+    @Autowired
+    private ClientRepository clientRepository;
+
     @Transactional(readOnly = true)
     public Page<AdvertisementDTO> findAllPaged(PageRequest pageRequest) {
         Page<Advertisement> allAdvertisement = advertisementRepository.findAll(pageRequest);
@@ -33,7 +38,6 @@ public class AdvertisementService {
     }
 
     private double totalInvested(Instant startDate, Instant endDate, Double investmentPerDay) {
-
         Duration duration = Duration.between(startDate, endDate);
         return duration.toDays() * investmentPerDay;
     }

@@ -1,6 +1,10 @@
 package com.max.anuncios.entities;
 
+import com.max.anuncios.dto.AdvertisementDTO;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -14,6 +18,9 @@ public class Client {
     private String cpf;
     private String email;
     private String phone;
+
+    @OneToMany(mappedBy = "client")
+    private List<Advertisement> advertisements = new ArrayList<>();
 
     public Client() {
     }
@@ -64,6 +71,10 @@ public class Client {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public List<Advertisement> getAdvertisements() {
+        return advertisements;
     }
 
     @Override

@@ -17,3 +17,5 @@ INSERT INTO tb_advertisement(id, investment_per_day, start_date, end_date, name,
 INSERT INTO tb_advertisement(id, investment_per_day, start_date, end_date, name, client_id) VALUES (3, 1, '2021-04-10', '2021-04-11', 'Calular', 3);
 
 INSERT INTO tb_advertisement(id, investment_per_day, start_date, end_date, name, client_id) VALUES (4, 4.72, '2021-04-10', '2021-04-11', 'Notebook', 4);
+
+INSERT INTO tb_advertisement(id, investment_per_day, start_date, end_date, name, client_id) VALUES (5, 2.20, '2021-04-10', '2021-04-20', 'TV', 1);

@@ -4,38 +4,35 @@ import com.max.anuncios.entities.Advertisement;
 
 import java.time.Instant;
 
-public class AdvertisementDTO {
+public class AdvertisementResponse {
 
     private Long id;
     private String name;
     private Instant startDate;
     private Instant endDate;
     private Double InvestmentPerDay;
-    private ClientDTO clientDTO;
     private Double totalInvested;
     private Integer visualization;
     private Integer click;
     private Integer sharing;
 
-    public AdvertisementDTO() {
+    public AdvertisementResponse() {
     }
 
-    public AdvertisementDTO(Long id, String name, Instant startDate, Instant endDate, Double investmentPerDay, ClientDTO clientDTO) {
+    public AdvertisementResponse(Long id, String name, Instant startDate, Instant endDate, Double investmentPerDay) {
         this.id = id;
         this.name = name;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.InvestmentPerDay = investmentPerDay;
-        this.clientDTO = clientDTO;
+        this.InvestmentPerDay = InvestmentPerDay = investmentPerDay;
     }
 
-    public AdvertisementDTO(Advertisement advertisement) {
+    public AdvertisementResponse(Advertisement advertisement) {
         this.id = advertisement.getId();
         this.name = advertisement.getName();
         this.startDate = advertisement.getStartDate();
         this.endDate = advertisement.getEndDate();
         this.InvestmentPerDay = advertisement.getInvestmentPerDay();
-        this.clientDTO = new ClientDTO(advertisement.getClient());
     }
 
     public Long getId() {
@@ -76,14 +73,6 @@ public class AdvertisementDTO {
 
     public void setInvestmentPerDay(Double investmentPerDay) {
         InvestmentPerDay = investmentPerDay;
-    }
-
-    public ClientDTO getClientDTO() {
-        return clientDTO;
-    }
-
-    public void setClientDTO(ClientDTO clientDTO) {
-        this.clientDTO = clientDTO;
     }
 
     public Double getTotalInvested() {

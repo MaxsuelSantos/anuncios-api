@@ -19,6 +19,7 @@ public class Advertisement {
     private Double InvestmentPerDay;
 
     @ManyToOne
+    @JoinColumn(name = "client_id")
     private Client client;
 
     public Advertisement() {
