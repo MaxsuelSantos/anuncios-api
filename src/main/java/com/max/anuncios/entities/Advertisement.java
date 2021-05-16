@@ -3,18 +3,21 @@ package com.max.anuncios.entities;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
 
 @Entity
 @Table(name = "tb_advertisement")
-public class Advertisement {
+public class Advertisement implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant startDate;
+    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant endDate;
     private Double InvestmentPerDay;
 

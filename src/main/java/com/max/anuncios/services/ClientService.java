@@ -3,6 +3,7 @@ package com.max.anuncios.services;
 import com.max.anuncios.dto.AdvertisementResponse;
 import com.max.anuncios.dto.ClientDTO;
 import com.max.anuncios.entities.Client;
+import com.max.anuncios.exceptions.ResourceNotFoundException;
 import com.max.anuncios.repositories.ClientRepository;
 import com.max.anuncios.util.Calc;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class ClientService {
 
     @Transactional(readOnly = true)
     public ClientDTO findById(Long id) {
-        Client client = clientRepository.findById(id).orElseThrow();
+        Client client = clientRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Entity not found"));
         ClientDTO clientDTO = new ClientDTO(client, client.getAdvertisements());
         for (AdvertisementResponse ar : clientDTO.getAdvertisementsResponse()) {
             ar.setTotalInvested(totalInvested(ar.getStartDate(), ar.getEndDate(), ar.getInvestmentPerDay()));

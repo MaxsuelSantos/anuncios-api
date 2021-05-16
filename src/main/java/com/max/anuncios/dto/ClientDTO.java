@@ -2,16 +2,28 @@ package com.max.anuncios.dto;
 
 import com.max.anuncios.entities.Advertisement;
 import com.max.anuncios.entities.Client;
+import org.hibernate.validator.constraints.br.CPF;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClientDTO {
+public class ClientDTO implements Serializable {
 
     private Long id;
+    @NotEmpty
+    @Size(min = 2, max = 100)
     private String name;
+    @NotEmpty
+    @CPF
     private String cpf;
+    @Email
     private String email;
+    @NotEmpty
     private String phone;
 
     private List<AdvertisementResponse> advertisementsResponse = new ArrayList<>();

@@ -1,15 +1,15 @@
 package com.max.anuncios.entities;
 
-import com.max.anuncios.dto.AdvertisementDTO;
-
 import javax.persistence.*;
+import java.io.Serializable;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 @Entity
 @Table(name = "tb_client")
-public class Client {
+public class Client implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

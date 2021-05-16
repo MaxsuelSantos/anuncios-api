@@ -2,15 +2,24 @@ package com.max.anuncios.dto;
 
 import com.max.anuncios.entities.Advertisement;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.time.Instant;
 
-public class AdvertisementDTO {
+public class AdvertisementDTO implements Serializable {
 
     private Long id;
+    @NotEmpty
+    @Size(min = 2, max = 100)
     private String name;
+    @NotEmpty
     private Instant startDate;
+    @NotEmpty
     private Instant endDate;
+    @NotEmpty
     private Double InvestmentPerDay;
+    @NotEmpty
     private ClientDTO clientDTO;
     private Double totalInvested;
     private Integer visualization;
@@ -117,4 +126,5 @@ public class AdvertisementDTO {
     public void setSharing(Integer sharing) {
         this.sharing = sharing;
     }
+
 }
