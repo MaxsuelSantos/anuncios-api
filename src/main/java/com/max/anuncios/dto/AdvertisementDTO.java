@@ -13,6 +13,10 @@ public class AdvertisementDTO {
     private Instant endDate;
     private Double InvestmentPerDay;
     private ClientDTO clientDTO;
+    private Double totalInvested;
+    private Integer visualization;
+    private Integer click;
+    private Integer sharing;
 
     public AdvertisementDTO() {
     }
@@ -81,5 +85,37 @@ public class AdvertisementDTO {
 
     public void setClientDTO(ClientDTO clientDTO) {
         this.clientDTO = clientDTO;
+    }
+
+    public Double getTotalInvested() {
+        return totalInvested;
+    }
+
+    public void setTotalInvested(Double totalInvested) {
+        this.totalInvested = totalInvested;
+    }
+
+    public Integer getVisualization() {
+        return visualization;
+    }
+
+    public void setVisualization(Integer visualization) {
+        this.visualization = visualization;
+    }
+
+    public Integer getClick() {
+        return click;
+    }
+
+    public void setClick(Integer click) {
+        this.click = click;
+    }
+
+    public Integer getSharing() {
+        return sharing;
+    }
+
+    public void setSharing(Integer sharing) {
+        this.sharing = sharing;
     }
 }
